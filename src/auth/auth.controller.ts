@@ -1,5 +1,12 @@
-import { Controller } from "@nestjs/common";
-import { Routes } from "src/utils/constants";
+import { Controller, Inject, Post } from "@nestjs/common";
+import { Routes, Services } from "src/utils/constants";
 
 @Controller(Routes.AUTH)
-export class AuthController {}
+export class AuthController {
+    constructor(
+    ){}
+    @Post('register')
+    registerUser(){
+
+    }
+}
