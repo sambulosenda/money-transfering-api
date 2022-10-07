@@ -1,4 +1,4 @@
 
-# Money Transfer API (Nest.js)
+# Money Transferring API (Nest.js)
 
-This is the Nest.js API project for the Money Transfer App.
+This is the Nest.js APIgit 
