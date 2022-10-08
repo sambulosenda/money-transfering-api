@@ -6,6 +6,7 @@ import { User } from 'src/utils/typeorm';
 import { CreateUserParams, FindUserParams } from 'src/utils/types/queries';
 import { UserFoundException } from './exceptions/UserfoundExeption';
 import { IUserService } from './user';
+import { hashPassword } from 'src/utils/helpers';
 
 @Injectable()
 export class UserService implements IUserService {
@@ -20,6 +21,7 @@ export class UserService implements IUserService {
   async createUser(params: CreateUserParams) {
     const existingUser = await this.findUser({ username: params.username });
     if (existingUser) throw new UserFoundException();
+    params.password = await hashPassword(params.password)
     const newUser = this.userRepository.create(params);
 
     return this.userRepository.save(newUser);
